@@ -9,6 +9,7 @@
 
 @optional
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+- (void)willOutputSampleBufferAudio:(CMSampleBufferRef)sampleBuffer;
 @end
 
 

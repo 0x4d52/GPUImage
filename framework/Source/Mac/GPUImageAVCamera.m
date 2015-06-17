@@ -672,6 +672,10 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
 
         CFRetain(sampleBuffer);
         runAsynchronouslyOnVideoProcessingQueue(^{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(willOutputSampleBufferAudio:)])
+            {
+                [self.delegate willOutputSampleBufferAudio:sampleBuffer];
+            }
             [self processAudioSampleBuffer:sampleBuffer];
             CFRelease(sampleBuffer);
 //            dispatch_semaphore_signal(frameRenderingSemaphore);
